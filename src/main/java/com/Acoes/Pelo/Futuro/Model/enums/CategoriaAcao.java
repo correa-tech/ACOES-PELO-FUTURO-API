@@ -1,4 +1,15 @@
 package com.Acoes.Pelo.Futuro.Model.enums;
 
-public class CategoriaAcao {
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
+
+
+public enum CategoriaAcao {
+    DOACAO,
+    RECICLAGEM,
+    PLANTIO,
+    EDUACACAO_AMBIENTAL
 }
+
+
