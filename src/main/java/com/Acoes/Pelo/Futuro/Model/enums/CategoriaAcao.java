@@ -1,8 +1,6 @@
 package com.Acoes.Pelo.Futuro.Model.enums;
 
-import jakarta.persistence.*;
-
-import java.time.LocalDate;
+import lombok.AllArgsConstructor;
 
 
 public enum CategoriaAcao {

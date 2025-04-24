@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AcaoSustentavelRepository extends JpaRepository<AcaoSustentavel, Long> {
+
+
+
 }

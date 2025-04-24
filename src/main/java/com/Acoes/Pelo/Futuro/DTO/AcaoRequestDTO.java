@@ -1,55 +1,34 @@
 package com.Acoes.Pelo.Futuro.DTO;
 
 import com.Acoes.Pelo.Futuro.Model.enums.CategoriaAcao;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.time.LocalDate;
 
-public class AcaoSustentavelRequestDTO {
+@Data
+@AllArgsConstructor
+public class AcaoRequestDTO {
 
+    @NotBlank(message = "O TÍTULO É OBRIGATÓRIO")
     private String titulo;
+
+    @NotBlank(message = "A DESCRIÇÃO É OBRIGATÓRIA")
     private String descriacao;
+
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "A CATEGORIA DEVE SER OBRIGATÓRIA")
     private CategoriaAcao categoria;
+
+    @NotNull(message = "DEFINA A DATA DA REALIZAÇÃO")
     private LocalDate dataRealizacao;
+
+    @NotBlank(message = "O RESPONSÁVEL DEVE SER OBRIGATÓRIO")
     private String responsavel;
 
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getDescriacao() {
-        return descriacao;
-    }
-
-    public void setDescriacao(String descriacao) {
-        this.descriacao = descriacao;
-    }
-
-    public CategoriaAcao getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(CategoriaAcao categoria) {
-        this.categoria = categoria;
-    }
-
-    public LocalDate getDataRealizacao() {
-        return dataRealizacao;
-    }
-
-    public void setDataRealizacao(LocalDate dataRealizacao) {
-        this.dataRealizacao = dataRealizacao;
-    }
-
-    public String getResponsavel() {
-        return responsavel;
-    }
-
-    public void setResponsavel(String responsavel) {
-        this.responsavel = responsavel;
-    }
 }
