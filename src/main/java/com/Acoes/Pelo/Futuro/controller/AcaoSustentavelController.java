@@ -2,6 +2,7 @@ package com.Acoes.Pelo.Futuro.controller;
 
 import com.Acoes.Pelo.Futuro.DTO.AcaoRequestDTO;
 import com.Acoes.Pelo.Futuro.DTO.AcaoResponseDTO;
+import com.Acoes.Pelo.Futuro.Model.enums.CategoriaAcao;
 import com.Acoes.Pelo.Futuro.exception.RecursoNaoEncontradoException;
 import com.Acoes.Pelo.Futuro.service.AcoesPeloFuturoService;
 import jakarta.validation.Valid;
@@ -51,6 +52,12 @@ public class AcaoSustentavelController {
     public ResponseEntity<Void> deletar (@PathVariable Long id){
         service.deletar(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/categoria")
+    public ResponseEntity<List<AcaoResponseDTO>> buscarPorCategoria(@RequestParam CategoriaAcao categoria) {
+        List<AcaoResponseDTO> acoes = service.buscarPorCategoria(categoria);
+        return ResponseEntity.ok(acoes);
     }
 
 }

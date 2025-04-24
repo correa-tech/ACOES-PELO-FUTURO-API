@@ -3,6 +3,7 @@ package com.Acoes.Pelo.Futuro.service;
 import com.Acoes.Pelo.Futuro.DTO.AcaoRequestDTO;
 import com.Acoes.Pelo.Futuro.Model.AcaoSustentavel;
 import com.Acoes.Pelo.Futuro.DTO.AcaoResponseDTO;
+import com.Acoes.Pelo.Futuro.Model.enums.CategoriaAcao;
 import com.Acoes.Pelo.Futuro.repository.AcaoSustentavelRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,14 @@ public class AcoesPeloFuturoService {
 
         acaoSustentavelRepository.delete(acaoSustentavel);
     }
+
+    public List<AcaoResponseDTO> buscarPorCategoria(CategoriaAcao categoria) {
+        List<AcaoSustentavel> acoes = acaoSustentavelRepository.findByCategoria(categoria);
+        return acoes.stream()
+                .map(acao -> modelMapper.map(acao, AcaoResponseDTO.class))
+                .toList();
+    }
+
 
 
 
