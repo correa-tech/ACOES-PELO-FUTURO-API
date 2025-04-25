@@ -18,7 +18,7 @@ public class AcaoRequestDTO {
     private String titulo;
 
     @NotBlank(message = "A DESCRIÇÃO É OBRIGATÓRIA")
-    private String descriacao;
+    private String descricao;
 
     @Enumerated(EnumType.STRING)
     @NotNull(message = "A CATEGORIA DEVE SER OBRIGATÓRIA")
