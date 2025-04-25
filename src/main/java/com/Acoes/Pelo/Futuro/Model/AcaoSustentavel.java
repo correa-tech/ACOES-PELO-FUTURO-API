@@ -19,9 +19,8 @@ public class AcaoSustentavel {
     @NonNull
     private String titulo;
 
-
     @NonNull
-    private String descriacao;
+    private String descricao;
 
     @Enumerated(EnumType.STRING)
     @NonNull
