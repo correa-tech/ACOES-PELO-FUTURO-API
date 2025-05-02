@@ -1,7 +1,7 @@
 package com.Acoes.Pelo.Futuro.service;
 
 import com.Acoes.Pelo.Futuro.DTO.AcaoRequestDTO;
-import com.Acoes.Pelo.Futuro.Model.AcaoSustentavel;
+import com.Acoes.Pelo.Futuro.Model.acao.AcaoSustentavel;
 import com.Acoes.Pelo.Futuro.DTO.AcaoResponseDTO;
 import com.Acoes.Pelo.Futuro.Model.enums.CategoriaAcao;
 import com.Acoes.Pelo.Futuro.repository.AcaoSustentavelRepository;

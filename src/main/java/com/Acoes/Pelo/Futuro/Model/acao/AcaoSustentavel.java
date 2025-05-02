@@ -1,4 +1,4 @@
-package com.Acoes.Pelo.Futuro.Model;
+package com.Acoes.Pelo.Futuro.Model.acao;
 
 import com.Acoes.Pelo.Futuro.Model.enums.CategoriaAcao;
 import jakarta.persistence.*;
