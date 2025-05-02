@@ -13,10 +13,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurations {
+
+    @Autowired
+    SecurityFilter securityFilter;
 
     @Autowired
     private CustmAuthenticationEntryPoint customSecurityExceptionHandler;
@@ -29,15 +33,17 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/acoes").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.PUT, "/acoes/{id}").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/acoes/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/acoes").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/acoes/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "api/acoes/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/acoes").hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .exceptionHandling(exception -> exception
                         .authenticationEntryPoint(customSecurityExceptionHandler)
                         .accessDeniedHandler(customSecurityExceptionHandler)
                 )
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

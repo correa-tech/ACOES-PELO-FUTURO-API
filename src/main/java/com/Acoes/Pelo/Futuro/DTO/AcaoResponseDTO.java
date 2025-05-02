@@ -10,7 +10,7 @@ public class AcaoResponseDTO {
 
     private Long id;
     private String titulo;
-    private String descriacao;
+    private String descricao;
     private CategoriaAcao categoria;
     private LocalDate dataRealizacao;
     private String responsavel;
