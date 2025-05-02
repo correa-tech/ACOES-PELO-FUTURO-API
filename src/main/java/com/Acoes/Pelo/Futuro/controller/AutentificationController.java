@@ -2,8 +2,10 @@ package com.Acoes.Pelo.Futuro.controller;
 
 
 import com.Acoes.Pelo.Futuro.DTO.AutentificationDTO;
+import com.Acoes.Pelo.Futuro.DTO.LoginResponseDTO;
 import com.Acoes.Pelo.Futuro.DTO.RegisterDTO;
 import com.Acoes.Pelo.Futuro.Model.users.Users;
+import com.Acoes.Pelo.Futuro.infra.security.TokenServices;
 import com.Acoes.Pelo.Futuro.repository.UserReository;
 import jakarta.validation.Valid;
 import org.apache.catalina.User;
@@ -22,6 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AutentificationController {
 
     @Autowired
+    TokenServices tokenServices;
+
+    @Autowired
     AuthenticationManager authenticationManager;
 
     @Autowired
@@ -32,7 +37,12 @@ public class AutentificationController {
         var UsernamaPassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         var auth = this.authenticationManager.authenticate(UsernamaPassword);
 
-        return ResponseEntity.ok().build();
+
+
+
+        var token = tokenServices.generateToken((Users) auth.getPrincipal());
+
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")
