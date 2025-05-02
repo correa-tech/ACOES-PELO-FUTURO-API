@@ -1,6 +1,5 @@
 package com.Acoes.Pelo.Futuro.DTO;
 
-import com.Acoes.Pelo.Futuro.Model.AcaoSustentavel;
 import com.Acoes.Pelo.Futuro.Model.enums.CategoriaAcao;
 import lombok.Data;
 
