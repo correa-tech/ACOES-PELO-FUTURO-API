@@ -1,6 +1,6 @@
 package com.Acoes.Pelo.Futuro.repository;
 
-import com.Acoes.Pelo.Futuro.Model.AcaoSustentavel;
+import com.Acoes.Pelo.Futuro.Model.acao.AcaoSustentavel;
 import com.Acoes.Pelo.Futuro.Model.enums.CategoriaAcao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

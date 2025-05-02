@@ -20,8 +20,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Recurso não encontrado");
     }
 
-
-
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> tratarErroGeral (Exception e){
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro inesperado " + e.getLocalizedMessage());
@@ -33,6 +31,8 @@ public class GlobalExceptionHandler {
         ex.getFieldErrors().forEach(erro -> erros.put(erro.getField(), erro.getDefaultMessage()));
         return ResponseEntity.badRequest().body(erros);
     }
+
+
 
 
 
